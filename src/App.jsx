@@ -11,6 +11,7 @@ import LogoutPage from "./Pages/LogoutPage";
 import NotFoundPage from "./Pages/NotFoundPage";
 import ProfilePage from "./Pages/ProfilePage";
 import QuizPage from "./Pages/QuizPage";
+import StudentsListPage from "./Pages/StudentsListPage";
 
 function App() {
   return (
@@ -21,7 +22,8 @@ function App() {
             <Route path="/" element={ <MainLayout />}>
               <Route path="assignments" element={<AssignmentListPage />} />
               <Route path="assignments/:assignmentNumber/description" element={<AssignmentDescription /> } />
-              <Route path="lectures" element = {<LectureListPage />} />
+              <Route path="lectures" element={<LectureListPage />} />
+              <Route path="studentsList" element={<StudentsListPage /> } />
               
               <Route path="profile" element = {<ProfilePage />} />
               <Route path="logout" element={<LogoutPage />} />

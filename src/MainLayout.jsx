@@ -4,7 +4,7 @@ import LeftSideBar from "./Pages/LeftSideBar";
 
 function MainLayout(props) {
     return (
-        <div className="flex items-stretch">
+        <div className="flex">
             <LeftSideBar></LeftSideBar>
             <div className="bg-gray-200 p-14 grow">
                 <Outlet />
