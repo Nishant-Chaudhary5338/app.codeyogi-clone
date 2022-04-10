@@ -23,7 +23,8 @@ function App() {
               <Route path="assignments" element={<AssignmentListPage />} />
               <Route path="assignments/:assignmentNumber/description" element={<AssignmentDescription /> } />
               <Route path="lectures" element={<LectureListPage />} />
-              <Route path="studentsList" element={<StudentsListPage /> } />
+              <Route path="studentsList" element={<StudentsListPage />} />
+        
               
               <Route path="profile" element = {<ProfilePage />} />
               <Route path="logout" element={<LogoutPage />} />

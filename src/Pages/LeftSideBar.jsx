@@ -16,7 +16,8 @@ function LeftSideBar(props) {
                      <Links theme = "primary"  icon = {<MdOutlineQuiz />} to = "/quiz">Quiz</Links>
                      <Links theme = "primary" icon={ <MdOutlineAssignment />} to = "/assignments">Assignments</Links>
                      <Links theme="primary" icon={<MdOutlineClass />} to="/lectures">Lectures</Links>
-                     <Links theme="primary" icon={ <HiUsers />} to= "/studentsList">Students</Links>
+                <Links theme="primary" icon={<HiUsers />} to="/studentsList">Students</Links>
+                
                 
                     <span className='mt-10 h-72'></span>
                    <Links  theme ="primary" icon={ <CgProfile /> } to ="/profile">Profile</Links>
