@@ -21,7 +21,7 @@ function App() {
             <Route path="quiz" element={<QuizPage />} />
             <Route path="/" element={ <MainLayout />}>
               <Route path="assignments" element={<AssignmentListPage />} />
-              <Route path="assignments/:assignmentNumber/description" element={<AssignmentDescription /> } />
+              <Route path="assignments/:assignmentId/description" element={<AssignmentDescription /> } />
               <Route path="lectures" element={<LectureListPage />} />
               <Route path="studentsList" element={<StudentsListPage />} />
         

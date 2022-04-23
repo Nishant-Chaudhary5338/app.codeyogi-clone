@@ -10,15 +10,12 @@ function StudentsListPage(props) {
     const [students, setStudents] = useState([]);
       
     useEffect(() => {
-        const token = axios.get(`https://api.codeyogi.io/batches/1/sessions`, {
-            withCredentials: true,
-        });
-    
+        const token = axios.get("https://randomuser.me/api/?results=9")
         token.then((response) => {
-            
-            console.log(response.data);
+            setStudents(response.data.results);
+            console.log(response.data.results);
         });
-    }, [])
+    }, []);
     
 
     
@@ -28,7 +25,9 @@ function StudentsListPage(props) {
         <div className="h-full p-10 bg-white ">
             
             <h1 className="text-2xl font-semibold">Students of batch 1</h1>
-              <div>
+              <div className="flex flex-wrap space-x-4">  {students.map((u) => (
+                    <StudentsCard user={u} />
+                     ))}
               </div>
             
             
