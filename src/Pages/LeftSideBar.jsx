@@ -1,6 +1,6 @@
 /** @format */
 
-import React from "react";
+import React, { useState } from "react";
 import Links from "../Links";
 import {
   MdOutlineQuiz,
@@ -12,8 +12,8 @@ import { HiUsers } from "react-icons/hi";
 
 function LeftSideBar(props) {
   return (
-    <div className="sticky top-0 hidden h-screen pr-2 bg-gray-800 sm:block sm:h-screen w-60">
-      <h1 className="pt-6 ml-6 text-3xl font-extrabold text-white ">
+    <div className="sticky top-0 hidden h-screen pr-2 bg-gray-800 sm:block w-60">
+      <h1 className="pt-6 ml-6 text-4xl font-extrabold text-white ">
         CODEYOGI
       </h1>
       <div className="flex flex-col mt-6 ml-4 ">
@@ -30,7 +30,6 @@ function LeftSideBar(props) {
           Students
         </Links>
 
-        <span className="mt-10 h-72"></span>
         <Links theme="primary" icon={<CgProfile />} to="/profile">
           Profile
         </Links>

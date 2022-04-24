@@ -29,9 +29,7 @@ function AssignmentDetails({ assignment }) {
 
   const submit = (event) => {
     event.preventDefault();
-    const urlValidator = string()
-      .url("please enter correct details")
-      .required();
+    const urlValidator = string().url("please enter valid Url").required();
 
     try {
       urlValidator.validateSync(formData.url);
@@ -72,7 +70,7 @@ function AssignmentDetails({ assignment }) {
           <span className="text-lg font-semibold text-green-600">{}</span>
         </div>
       </div>
-      <div className="flex justify-between pt-6 pb-4 mx-40">
+      <div className="flex justify-between pt-6 pb-4 sm:mx-40">
         <button
           type="button"
           onClick={showPopup}

@@ -2,32 +2,27 @@
 
 import React, { useState, useEffect } from "react";
 import LectureDetails from "../LectureDetails";
-import axios from "axios";
+import { getLectures } from "../Api";
 
 function LectureListPage(props) {
   const [sessions, setSessions] = useState([]);
 
   useEffect(() => {
-    const token = axios.get(`https://api.codeyogi.io/batches/1/sessions`, {
-      withCredentials: true,
-    });
+    const token = getLectures();
+    token.then((r) => {
+      setSessions(r);
 
-    token.then((response) => {
-      setSessions(response.data);
-
-      console.log(response.data);
+      console.log(r);
     });
   }, []);
 
   return (
-    <div>
-      <h1 className="mb-4 text-xl font-semibold ">Lectures</h1>
-      <div className="h-full p-10 pt-2 bg-gray-100 ">
-        <div>
-          {sessions.map((s) => (
-            <LectureDetails session={s} key={s.id}></LectureDetails>
-          ))}
-        </div>
+    <div className="h-full p-2 pt-2 bg-gray-100 sm:p-10 ">
+      <h1 className="pl-6 mb-4 text-xl font-semibold ">Lectures</h1>
+      <div>
+        {sessions.map((s) => (
+          <LectureDetails session={s} key={s.id}></LectureDetails>
+        ))}
       </div>
     </div>
   );

@@ -135,7 +135,7 @@ function AssignmentDescription() {
             </div>
           )}
 
-          <A href={setSubmissionUrl}>See your submission</A>
+          <A href="#">See your submission</A>
         </div>
       </div>
       <div className="text-xl text-red-500">

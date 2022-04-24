@@ -38,9 +38,11 @@ function ProfilePage() {
   };
 
   return (
-    <div className="bg-white sm:m-16 ">
+    <div className="p-2 bg-white sm:m-16 ">
       <div>
-        <h1 className="p-10 px-20 text-lg font-semibold">Personal details</h1>
+        <h1 className="p-4 text-lg font-semibold sm:p-10 sm:px-20">
+          Personal details
+        </h1>
         <hr />
       </div>
 
@@ -139,7 +141,7 @@ function ProfilePage() {
           >
             Branch
           </ProfileInput>
-          <div className="p-8 my-4">
+          <div className="my-4 sm:p-8">
             <Button type="submit">Update</Button>
           </div>
         </form>
