@@ -11,8 +11,12 @@ import axios from "axios";
 import { DateTime } from "luxon";
 import PopupInput from "./Small Components/PopupInput";
 import { string } from "yup";
+import { getAssignmentNumber, submitAssignmentApi } from "./Api";
+import { useContext } from "react";
+import AlertContext from "./Small Components/AlertContext";
 
 function AssignmentDescription() {
+  const { showAlert } = useContext(AlertContext);
   const data = useParams();
   const id = +data.assignmentId;
   // const selectedAssignment = assignment.find(assignment => assignment.id === selectedId)
@@ -40,44 +44,25 @@ function AssignmentDescription() {
 
     try {
       urlValidator.validateSync(submissionUrl);
+      showAlert("assignment submitted", "success");
     } catch (e) {
       setUrlError(e.message);
+      showAlert("assignment not submitted", "error");
       return;
     }
-    axios.put(
-      `https://api.codeyogi.io/assignment/${id}/submit`,
-      { submissionLink: submissionUrl },
-      { withCredentials: true }
-    );
+    submitAssignmentApi(id, submissionUrl);
     setPopup(false);
     setSubmissionUrl("");
     console.log(`${assignment.id}`, submissionUrl);
   };
 
   useEffect(() => {
-    const moken = axios.get(`https://api.codeyogi.io/assignments/${id}`, {
-      withCredentials: true,
-    });
-
-    moken.then((response) => {
+    const token = getAssignmentNumber(id);
+    token.then((response) => {
       setAssignment(response.data);
       console.log(response.data);
     });
   }, []);
-
-  /*const checkSubmission = () => {
-    useEffect(() => {
-      const token = axios.get(
-        `https://api.codeyogi.io/assignments/${id}/submit`,
-        {
-          withCredentials: true,
-        }
-      );
-      token.then((response) => {
-        console.log(response.data);
-      });
-    }, []);
-  };*/
 
   return (
     <div>
@@ -135,7 +120,7 @@ function AssignmentDescription() {
             </div>
           )}
 
-          <A href="#">See your submission</A>
+          <A href="">See your submission</A>
         </div>
       </div>
       <div className="text-xl text-red-500">

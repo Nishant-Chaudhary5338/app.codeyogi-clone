@@ -1,14 +1,17 @@
 /** @format */
 
-import React from "react";
+import React, { useContext } from "react";
 import ProfileInput from "../ProfileInput";
 import Button from "../Small Components/Button";
 import { object, string, number, date } from "yup";
-import { Formik } from "formik";
+import { Formik, Form } from "formik";
+import AlertContext from "../Small Components/AlertContext";
 
 function ProfilePage() {
+  const { showAlert } = useContext(AlertContext);
   const onSubmit = () => {
     console.log("profile info updated");
+    showAlert("profile info updated", "success");
   };
 
   const validationSchema = object().shape({
@@ -51,7 +54,7 @@ function ProfilePage() {
         initialValues={initialValues}
         validationSchema={validationSchema}
       >
-        <form>
+        <Form>
           <ProfileInput
             id="firstName"
             required
@@ -144,7 +147,7 @@ function ProfilePage() {
           <div className="my-4 sm:p-8">
             <Button type="submit">Update</Button>
           </div>
-        </form>
+        </Form>
       </Formik>
     </div>
   );

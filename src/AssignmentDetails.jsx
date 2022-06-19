@@ -8,8 +8,15 @@ import PopupInput from "./Small Components/PopupInput";
 import { DateTime } from "luxon";
 import Button from "./Small Components/Button";
 import { useForm } from "./forms";
+import { submitAssignmentApi } from "./Api";
+import { useContext } from "react";
+import AlertContext from "./Small Components/AlertContext";
 
 function AssignmentDetails({ assignment }) {
+  const { showAlert } = useContext(AlertContext);
+  //const data = useParams();
+  //const id = +data.assignmentId;
+
   const [popup, setPopup] = useState(false);
 
   const [urlError, setUrlError] = useState("");
@@ -33,6 +40,7 @@ function AssignmentDetails({ assignment }) {
 
     try {
       urlValidator.validateSync(formData.url);
+      showAlert("assignment submitted", "success");
       setUrlError("");
     } catch (e) {
       setUrlError(e.message);
@@ -40,6 +48,7 @@ function AssignmentDetails({ assignment }) {
     }
     setPopup(false);
     // setFormData("");
+    submitAssignmentApi(`${assignment.id}`, formData.url);
     console.log(`${assignment.id}`, formData.url);
   };
 
