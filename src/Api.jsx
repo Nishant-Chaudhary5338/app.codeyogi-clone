@@ -1,6 +1,7 @@
 /** @format */
 
 import axios from "axios";
+import { useEffect } from "react";
 
 const Codeyogi_Base_Url = "https://api.codeyogi.io/";
 const RandomUser_Base_Url = "https://randomuser.me/api/";

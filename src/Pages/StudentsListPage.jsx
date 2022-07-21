@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import StudentsCard from "../Small Components/StudentsCard";
-import { getCachedData, getStudents } from "../Api";
+import { getCachedData, getStudents, getusers2 } from "../Api";
 
 function StudentsListPage(props) {
   const cachedUsers = getCachedData("student") || [];
